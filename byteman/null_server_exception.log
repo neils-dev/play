@@ -1,0 +1,13 @@
+ call Call#121 Retry#8 org.apache.hadoop.ozone.om.protocol.OzoneManagerProtocol.submitRequest from 192.168.144.7:43111
+om_1        | java.lang.NullPointerException
+om_1        | 	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:539)
+om_1        | 	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:1086)
+om_1        | 	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:1029)
+om_1        | 	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:957)
+om_1        | 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+om_1        | 	at java.base/javax.security.auth.Subject.doAs(Subject.java:423)
+om_1        | 	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1762)
+om_1        | 	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2957)
+om_1        | 2021-06-24 03:36:44,838 [Socket Reader #1 for port 9862] INFO ipc.Server: Auth successful for recon/recon@EXAMPLE.COM (auth:KERBEROS) from 192.168.144.7:36167
+om_1        | 2021-06-24 03:36:44,841 [Socket Reader #1 for port 9862] INFO authorize.ServiceAuthorizationManager: Authorization successful for recon/recon@EXAMPLE.COM (auth:KERBEROS) for protocol=interface org.apache.hadoop.ozone.om.protocol.OzoneManagerProtocol
+om_1        | Server SubmitRequest Exiting...

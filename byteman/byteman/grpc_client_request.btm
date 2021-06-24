@@ -1,0 +1,18 @@
+RULE S3g gRPC server
+CLASS org.apache.hadoop.ozone.om.OzoneManagerServiceGrpc
+METHOD submitRequest
+AT LINE 131
+IF TRUE
+#DO traceln("****** Service Grpc submitRequest ********")
+#DO throw IOException("Test grpc exception")
+DO throw java.io.IOException("Test grpc exception")
+ENDRULE
+
+RULE S3g gRPC server exception1
+CLASS org.apache.hadoop.ozone.protocolPB.OzoneManagerProtocolServerSideTranslatorPB
+METHOD submitRequest
+IF TRUE
+#DO traceln("--> s3g gRPC SERVER message request: " + $2.getClass().getSimpleName() + " from " + linked(Thread.currentThread(), "source"));
+#DO traceln($2.toString())
+DO throw com.google.protobuf.ServiceException("Test grpc server exception")
+ENDRULE
